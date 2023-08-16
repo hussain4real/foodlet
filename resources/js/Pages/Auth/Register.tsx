@@ -8,7 +8,13 @@ import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
+        first_name: '',
+        last_name: '',
+        mobile_number: '',
+        building_number: '',
+        street: '',
+        zone: '',
+        city: '',
         email: '',
         password: '',
         password_confirmation: '',
@@ -32,20 +38,122 @@ export default function Register() {
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="first_name" value="First Name" />
 
                     <TextInput
-                        id="name"
-                        name="name"
-                        value={data.name}
+                        id="first_name"
+                        name="first_name"
+                        value={data.first_name}
                         className="mt-1 block w-full"
-                        autoComplete="name"
+                        autoComplete="first_name"
                         isFocused={true}
-                        onChange={(e) => setData('name', e.target.value)}
+                        onChange={(e) => setData('first_name', e.target.value)}
                         required
                     />
 
-                    <InputError message={errors.name} className="mt-2" />
+                    <InputError message={errors.first_name} className="mt-2" />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="last_name" value="Last Name" />
+
+                    <TextInput
+                        id="last_name"
+                        name="last_name"
+                        value={data.last_name}
+                        className="mt-1 block w-full"
+                        autoComplete="last_name"
+                        isFocused={true}
+                        onChange={(e) => setData('last_name', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.last_name} className="mt-2" />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="mobile_number" value="Phone Number" />
+
+                    <TextInput
+                        id="mobile_number"
+                        name="mobile_number"
+                        value={data.mobile_number}
+                        className="mt-1 block w-full"
+                        autoComplete="mobile_number"
+                        isFocused={true}
+                        onChange={(e) => setData('mobile_number', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.mobile_number} className="mt-2" />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="building_number" value="Building Number" />
+
+                    <TextInput
+                        id="building_number"
+                        name="building_number"
+                        value={data.building_number}
+                        className="mt-1 block w-full"
+                        autoComplete="building_number"
+                        isFocused={true}
+                        onChange={(e) => setData('building_number', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.building_number} className="mt-2" />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="street" value="Name" />
+
+                    <TextInput
+                        id="street"
+                        name="street"
+                        value={data.street}
+                        className="mt-1 block w-full"
+                        autoComplete="street"
+                        isFocused={true}
+                        onChange={(e) => setData('street', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.street} className="mt-2" />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="zone" value="Zone" />
+
+                    <TextInput
+                        id="zone"
+                        name="zone"
+                        value={data.zone}
+                        className="mt-1 block w-full"
+                        autoComplete="zone"
+                        isFocused={true}
+                        onChange={(e) => setData('zone', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.zone} className="mt-2" />
+                </div>
+
+                <div>
+                    <InputLabel htmlFor="city" value="City" />
+
+                    <TextInput
+                        id="city"
+                        name="city"
+                        value={data.city}
+                        className="mt-1 block w-full"
+                        autoComplete="city"
+                        isFocused={true}
+                        onChange={(e) => setData('city', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.city} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
