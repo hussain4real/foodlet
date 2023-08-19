@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\CreateNewFood;
+use App\Http\Resources\FoodResource;
 use App\Models\Food;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -11,11 +13,14 @@ class FoodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Inertia\Response
     {
-        $food = Food::all();
+        $foods = Food::all();
+
+        $foods = FoodResource::collection($foods->load('user'));
+
         return Inertia::render('Food/Index', [
-            'foods' => $food,
+            'foods' => $foods,
         ]);
     }
 
@@ -24,15 +29,17 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Food/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateNewFood $createNewFood, Request $request)
     {
-        //
+        $food = $createNewFood($request->all());
+
+        return redirect()->route('food.index');
     }
 
     /**

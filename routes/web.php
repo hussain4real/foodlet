@@ -36,6 +36,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('foods', FoodController::class);
+Route::resource('food', FoodController::class)->names([
+    'create' => 'food.create',
+    'edit' => 'food.edit',
+    'show' => 'food.show',
+    'index' => 'food.index',
+    'store' => 'food.store',
+    'update' => 'food.update',
+    'destroy' => 'food.destroy',
+
+])
+    ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

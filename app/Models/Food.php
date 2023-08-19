@@ -18,6 +18,7 @@ class Food extends Model
      */
     protected $fillable = [
         'name',
+        'user_id',
         'description',
         'type',
         'status',
@@ -32,7 +33,7 @@ class Food extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**

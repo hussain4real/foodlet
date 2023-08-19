@@ -16,7 +16,14 @@ export interface Food {
     id: number;
     name: string;
     description: string;
-    type: string;
+    type:
+        [
+            'food',
+            'drink',
+            'dessert',
+            'snack',
+            'other'
+        ];
     status: string;
 }
 

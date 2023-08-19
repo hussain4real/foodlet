@@ -6,11 +6,12 @@ import Authenticated from "@/Layouts/AuthenticatedLayout";
 export default function Index({ auth,foods }: PageProps) {
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="FoodCard" />
+            <Head title="Food" />
             <div className="flex flex-wrap">
                 {foods.map((food: Food) => (
                     <FoodCard key={food.id} food={food}  />
                 ))}
+                <h2>Hello</h2>
             </div>
 
         </AuthenticatedLayout>
