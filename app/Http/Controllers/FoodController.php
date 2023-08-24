@@ -37,9 +37,10 @@ class FoodController extends Controller
      */
     public function store(CreateNewFood $createNewFood, Request $request)
     {
-        $food = $createNewFood($request->all());
+        $food = $createNewFood($request->all(), $request);
 
-        return redirect()->route('food.index');
+        return redirect()->route('food.index')
+            ->with('flash', 'Food created.');
     }
 
     /**
